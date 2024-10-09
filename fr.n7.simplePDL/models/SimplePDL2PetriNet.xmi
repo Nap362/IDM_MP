@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<petrinet:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" name="Mon premier processus">
+  <nodes xsi:type="petrinet:Place" name="A1_NotStarted" outgoing="//@arcs.0"/>
+  <nodes xsi:type="petrinet:Transition" name="A1_Starts" outgoing="//@arcs.1 //@arcs.2" ingoing="//@arcs.11"/>
+  <nodes xsi:type="petrinet:Place" name="A1_Running" outgoing="//@arcs.3" ingoing="//@arcs.2"/>
+  <nodes xsi:type="petrinet:Place" name="A1_Started" ingoing="//@arcs.1"/>
+  <nodes xsi:type="petrinet:Transition" name="A1_Finishes" outgoing="//@arcs.4 //@arcs.10" ingoing="//@arcs.3"/>
+  <nodes xsi:type="petrinet:Place" name="A1_Finished" ingoing="//@arcs.4"/>
+  <nodes xsi:type="petrinet:Place" name="A2_NotStarted" outgoing="//@arcs.5"/>
+  <nodes xsi:type="petrinet:Transition" name="A2_Starts" outgoing="//@arcs.6 //@arcs.7" ingoing="//@arcs.5"/>
+  <nodes xsi:type="petrinet:Place" name="A2_Running" outgoing="//@arcs.8" ingoing="//@arcs.7"/>
+  <nodes xsi:type="petrinet:Place" name="A2_Started" outgoing="//@arcs.11" ingoing="//@arcs.6"/>
+  <nodes xsi:type="petrinet:Transition" name="A2_Finishes" outgoing="//@arcs.9" ingoing="//@arcs.8"/>
+  <nodes xsi:type="petrinet:Place" name="A2_Finished" ingoing="//@arcs.10"/>
+  <arcs source="//@nodes.0"/>
+  <arcs source="//@nodes.1" target="//@nodes.3"/>
+  <arcs source="//@nodes.1" target="//@nodes.2"/>
+  <arcs source="//@nodes.2" target="//@nodes.4"/>
+  <arcs source="//@nodes.4" target="//@nodes.5"/>
+  <arcs source="//@nodes.6" target="//@nodes.7"/>
+  <arcs source="//@nodes.7" target="//@nodes.9"/>
+  <arcs source="//@nodes.7" target="//@nodes.8"/>
+  <arcs source="//@nodes.8" target="//@nodes.10"/>
+  <arcs source="//@nodes.10"/>
+  <arcs source="//@nodes.4" target="//@nodes.11"/>
+  <arcs source="//@nodes.9" target="//@nodes.1"/>
+</petrinet:PetriNet>
