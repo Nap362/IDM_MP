@@ -14,9 +14,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import simplepdl.AllocationRessource;
 import simplepdl.SimplepdlPackage;
 import simplepdl.WorkDefinition;
 import simplepdl.WorkSequence;
@@ -32,6 +34,7 @@ import simplepdl.WorkSequence;
  *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getLinksToPredecessors <em>Links To Predecessors</em>}</li>
  *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getLinksToSuccessors <em>Links To Successors</em>}</li>
  *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getAllocations <em>Allocations</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,6 +79,16 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAllocations() <em>Allocations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllocations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AllocationRessource> allocations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,6 +163,19 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<AllocationRessource> getAllocations() {
+		if (allocations == null) {
+			allocations = new EObjectContainmentWithInverseEList<AllocationRessource>(AllocationRessource.class, this, SimplepdlPackage.WORK_DEFINITION__ALLOCATIONS, SimplepdlPackage.ALLOCATION_RESSOURCE__WORKDEFINITION);
+		}
+		return allocations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -158,6 +184,8 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLinksToPredecessors()).basicAdd(otherEnd, msgs);
 			case SimplepdlPackage.WORK_DEFINITION__LINKS_TO_SUCCESSORS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLinksToSuccessors()).basicAdd(otherEnd, msgs);
+			case SimplepdlPackage.WORK_DEFINITION__ALLOCATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAllocations()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -174,6 +202,8 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 				return ((InternalEList<?>)getLinksToPredecessors()).basicRemove(otherEnd, msgs);
 			case SimplepdlPackage.WORK_DEFINITION__LINKS_TO_SUCCESSORS:
 				return ((InternalEList<?>)getLinksToSuccessors()).basicRemove(otherEnd, msgs);
+			case SimplepdlPackage.WORK_DEFINITION__ALLOCATIONS:
+				return ((InternalEList<?>)getAllocations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -192,6 +222,8 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 				return getLinksToSuccessors();
 			case SimplepdlPackage.WORK_DEFINITION__NAME:
 				return getName();
+			case SimplepdlPackage.WORK_DEFINITION__ALLOCATIONS:
+				return getAllocations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,6 +248,10 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 			case SimplepdlPackage.WORK_DEFINITION__NAME:
 				setName((String)newValue);
 				return;
+			case SimplepdlPackage.WORK_DEFINITION__ALLOCATIONS:
+				getAllocations().clear();
+				getAllocations().addAll((Collection<? extends AllocationRessource>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -237,6 +273,9 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 			case SimplepdlPackage.WORK_DEFINITION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case SimplepdlPackage.WORK_DEFINITION__ALLOCATIONS:
+				getAllocations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -255,6 +294,8 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 				return linksToSuccessors != null && !linksToSuccessors.isEmpty();
 			case SimplepdlPackage.WORK_DEFINITION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case SimplepdlPackage.WORK_DEFINITION__ALLOCATIONS:
+				return allocations != null && !allocations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

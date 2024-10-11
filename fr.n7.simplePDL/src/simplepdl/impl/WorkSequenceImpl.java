@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import simplepdl.GestionRessource;
 import simplepdl.SimplepdlPackage;
 import simplepdl.WorkDefinition;
 import simplepdl.WorkSequence;
@@ -27,7 +26,6 @@ import simplepdl.WorkSequenceType;
  *   <li>{@link simplepdl.impl.WorkSequenceImpl#getLinkType <em>Link Type</em>}</li>
  *   <li>{@link simplepdl.impl.WorkSequenceImpl#getPredecessor <em>Predecessor</em>}</li>
  *   <li>{@link simplepdl.impl.WorkSequenceImpl#getSuccessor <em>Successor</em>}</li>
- *   <li>{@link simplepdl.impl.WorkSequenceImpl#getGestionressource <em>Gestionressource</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,16 +70,6 @@ public class WorkSequenceImpl extends ProcessElementImpl implements WorkSequence
 	 * @ordered
 	 */
 	protected WorkDefinition successor;
-
-	/**
-	 * The cached value of the '{@link #getGestionressource() <em>Gestionressource</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGestionressource()
-	 * @generated
-	 * @ordered
-	 */
-	protected GestionRessource gestionressource;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -255,46 +243,6 @@ public class WorkSequenceImpl extends ProcessElementImpl implements WorkSequence
 	 * @generated
 	 */
 	@Override
-	public GestionRessource getGestionressource() {
-		if (gestionressource != null && gestionressource.eIsProxy()) {
-			InternalEObject oldGestionressource = (InternalEObject)gestionressource;
-			gestionressource = (GestionRessource)eResolveProxy(oldGestionressource);
-			if (gestionressource != oldGestionressource) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimplepdlPackage.WORK_SEQUENCE__GESTIONRESSOURCE, oldGestionressource, gestionressource));
-			}
-		}
-		return gestionressource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GestionRessource basicGetGestionressource() {
-		return gestionressource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setGestionressource(GestionRessource newGestionressource) {
-		GestionRessource oldGestionressource = gestionressource;
-		gestionressource = newGestionressource;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.WORK_SEQUENCE__GESTIONRESSOURCE, oldGestionressource, gestionressource));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SimplepdlPackage.WORK_SEQUENCE__PREDECESSOR:
@@ -341,9 +289,6 @@ public class WorkSequenceImpl extends ProcessElementImpl implements WorkSequence
 			case SimplepdlPackage.WORK_SEQUENCE__SUCCESSOR:
 				if (resolve) return getSuccessor();
 				return basicGetSuccessor();
-			case SimplepdlPackage.WORK_SEQUENCE__GESTIONRESSOURCE:
-				if (resolve) return getGestionressource();
-				return basicGetGestionressource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -364,9 +309,6 @@ public class WorkSequenceImpl extends ProcessElementImpl implements WorkSequence
 				return;
 			case SimplepdlPackage.WORK_SEQUENCE__SUCCESSOR:
 				setSuccessor((WorkDefinition)newValue);
-				return;
-			case SimplepdlPackage.WORK_SEQUENCE__GESTIONRESSOURCE:
-				setGestionressource((GestionRessource)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -389,9 +331,6 @@ public class WorkSequenceImpl extends ProcessElementImpl implements WorkSequence
 			case SimplepdlPackage.WORK_SEQUENCE__SUCCESSOR:
 				setSuccessor((WorkDefinition)null);
 				return;
-			case SimplepdlPackage.WORK_SEQUENCE__GESTIONRESSOURCE:
-				setGestionressource((GestionRessource)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -410,8 +349,6 @@ public class WorkSequenceImpl extends ProcessElementImpl implements WorkSequence
 				return predecessor != null;
 			case SimplepdlPackage.WORK_SEQUENCE__SUCCESSOR:
 				return successor != null;
-			case SimplepdlPackage.WORK_SEQUENCE__GESTIONRESSOURCE:
-				return gestionressource != null;
 		}
 		return super.eIsSet(featureID);
 	}

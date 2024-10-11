@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link simplepdl.WorkDefinition#getLinksToPredecessors <em>Links To Predecessors</em>}</li>
  *   <li>{@link simplepdl.WorkDefinition#getLinksToSuccessors <em>Links To Successors</em>}</li>
  *   <li>{@link simplepdl.WorkDefinition#getName <em>Name</em>}</li>
+ *   <li>{@link simplepdl.WorkDefinition#getAllocations <em>Allocations</em>}</li>
  * </ul>
  *
  * @see simplepdl.SimplepdlPackage#getWorkDefinition()
@@ -72,5 +73,19 @@ public interface WorkDefinition extends ProcessElement {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Allocations</b></em>' containment reference list.
+	 * The list contents are of type {@link simplepdl.AllocationRessource}.
+	 * It is bidirectional and its opposite is '{@link simplepdl.AllocationRessource#getWorkdefinition <em>Workdefinition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Allocations</em>' containment reference list.
+	 * @see simplepdl.SimplepdlPackage#getWorkDefinition_Allocations()
+	 * @see simplepdl.AllocationRessource#getWorkdefinition
+	 * @model opposite="workdefinition" containment="true"
+	 * @generated
+	 */
+	EList<AllocationRessource> getAllocations();
 
 } // WorkDefinition

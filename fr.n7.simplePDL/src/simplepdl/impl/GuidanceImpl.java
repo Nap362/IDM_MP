@@ -28,6 +28,7 @@ import simplepdl.SimplepdlPackage;
  * <ul>
  *   <li>{@link simplepdl.impl.GuidanceImpl#getElement <em>Element</em>}</li>
  *   <li>{@link simplepdl.impl.GuidanceImpl#getText <em>Text</em>}</li>
+ *   <li>{@link simplepdl.impl.GuidanceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,6 +63,26 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 	 * @ordered
 	 */
 	protected String text = TEXT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,12 +145,37 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.GUIDANCE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SimplepdlPackage.GUIDANCE__ELEMENT:
 				return getElement();
 			case SimplepdlPackage.GUIDANCE__TEXT:
 				return getText();
+			case SimplepdlPackage.GUIDANCE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -150,6 +196,9 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 			case SimplepdlPackage.GUIDANCE__TEXT:
 				setText((String)newValue);
 				return;
+			case SimplepdlPackage.GUIDANCE__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -168,6 +217,9 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 			case SimplepdlPackage.GUIDANCE__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
+			case SimplepdlPackage.GUIDANCE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -184,6 +236,8 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 				return element != null && !element.isEmpty();
 			case SimplepdlPackage.GUIDANCE__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case SimplepdlPackage.GUIDANCE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -200,6 +254,8 @@ public class GuidanceImpl extends ProcessElementImpl implements Guidance {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (text: ");
 		result.append(text);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

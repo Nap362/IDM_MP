@@ -16,7 +16,9 @@ import petrinet.PetriNet;
 import petrinet.PetrinetFactory;
 import petrinet.Place;
 import petrinet.Transition;
+import simplepdl.GestionRessource;
 import simplepdl.Process;
+import simplepdl.Ressource;
 import simplepdl.SimplepdlFactory;
 import simplepdl.SimplepdlPackage;
 import simplepdl.WorkDefinition;
@@ -70,9 +72,31 @@ public class SimplePDL2PetriNet {
 				WorkDefinition wd = (WorkDefinition) o;
 				//Creation du réseau de petri correspondant à une wd
 				activitePetri(wd.getName(), petriFactory, petrinetI);
-			}else if (o instanceof WorkSequence) {
+			}else if (o instanceof Ressource) {
+				Ressource r = (Ressource) o;
+				Place ressource = petriFactory.createPlace();
+				ressource.setName(ressource.getName());
+				ressource.setNbTokens(r.getQuantite());
+				petrinetI.getNodes().add(ressource);
+			}
+		}
+		for (Object o : process.getProcessElements()) {
+			if (o instanceof WorkSequence) {
 				WorkSequence ws = (WorkSequence) o;
 				sequencePetri(ws, petriFactory, petrinetI);
+			}else if (o instanceof GestionRessource) {
+				GestionRessource g = (GestionRessource) o;
+				WorkDefinition wd = g.ge
+				Place r = (Place) petrinetI.getNodes().stream().filter(x -> x.getName().equals(r.getName())).findFirst().get();
+				Transition wd = (Transition) petrinetI.getNodes().stream().filter(x -> x.getName().equals(wd.getName() + "_Starts")).findFirst().get();
+				
+				Arc a_prendre = petriFactory.createArc();
+				p_started.setIngoing(a2);
+				t_started.getOutgoing().add(a2);
+				a2.setSource(t_started);
+				a2.setTarget(p_started);
+				a2.setPoids(1);
+				petrinetI.getArcs().add(a2);
 			}
 		}
 		
@@ -92,6 +116,7 @@ public class SimplePDL2PetriNet {
 		//Creation des places pour une wd
 		Place p_notStarted = factory.createPlace();
 		p_notStarted.setName(name + "_NotStarted");
+		p_notStarted.setNbTokens(1);
 		petrinetI.getNodes().add(p_notStarted);
 		
 		Transition t_started = factory.createTransition();
@@ -101,9 +126,11 @@ public class SimplePDL2PetriNet {
 		Place p_running = factory.createPlace();
 		p_running.setName(name + "_Running");
 		petrinetI.getNodes().add(p_running);
+		p_running.setNbTokens(0);
 		
 		Place p_started = factory.createPlace();
 		p_started.setName(name + "_Started");
+		p_started.setNbTokens(0);
 		petrinetI.getNodes().add(p_started);
 		
 		Transition t_finished = factory.createTransition();
@@ -112,6 +139,7 @@ public class SimplePDL2PetriNet {
 		
 		Place p_finished = factory.createPlace();
 		p_finished.setName(name + "_Finished");
+		p_finished.setNbTokens(0);
 		petrinetI.getNodes().add(p_finished);
 		
 		//Creation des arcs pour une wd
@@ -120,6 +148,7 @@ public class SimplePDL2PetriNet {
 		t_started.setIngoing(a1);
 		a1.setSource(p_notStarted);
 		a1.setTarget(t_started);
+		a1.setPoids(1);
 		petrinetI.getArcs().add(a1);
 		
 		Arc a2 = factory.createArc();
@@ -127,6 +156,7 @@ public class SimplePDL2PetriNet {
 		t_started.getOutgoing().add(a2);
 		a2.setSource(t_started);
 		a2.setTarget(p_started);
+		a2.setPoids(1);
 		petrinetI.getArcs().add(a2);
 		
 		Arc a3 = factory.createArc();
@@ -134,6 +164,7 @@ public class SimplePDL2PetriNet {
 		t_started.getOutgoing().add(a3);
 		a3.setSource(t_started);
 		a3.setTarget(p_running);
+		a3.setPoids(1);
 		petrinetI.getArcs().add(a3);
 		
 		Arc a4 = factory.createArc();
@@ -141,6 +172,7 @@ public class SimplePDL2PetriNet {
 		p_running.getOutgoing().add(a4);
 		a4.setSource(p_running);
 		a4.setTarget(t_finished);
+		a4.setPoids(1);
 		petrinetI.getArcs().add(a4);
 		
 		Arc a5 = factory.createArc();
@@ -148,6 +180,7 @@ public class SimplePDL2PetriNet {
 		t_finished.getOutgoing().add(a5);
 		a5.setSource(t_finished);
 		a5.setTarget(p_finished);
+		a5.setPoids(1);
 		petrinetI.getArcs().add(a5);
 	}
 	
@@ -164,6 +197,7 @@ public class SimplePDL2PetriNet {
 			t_finishes.getOutgoing().add(a);
 			a.setSource(t_finishes);
 			a.setTarget(p_finished);
+			a.setPoids(1);
 			petrinetI.getArcs().add(a);
 			return;
 		}
@@ -175,6 +209,7 @@ public class SimplePDL2PetriNet {
 			t_finishes.setIngoing(a);
 			a.setSource(p_finished);
 			a.setTarget(t_finishes);
+			a.setPoids(1);
 			petrinetI.getArcs().add(a);	
 			return;
 		}
@@ -186,6 +221,7 @@ public class SimplePDL2PetriNet {
 			t_finishes.setIngoing(a);
 			a.setSource(p_finished);
 			a.setTarget(t_finishes);
+			a.setPoids(1);
 			petrinetI.getArcs().add(a);
 			return;
 		}
@@ -197,6 +233,7 @@ public class SimplePDL2PetriNet {
 			t_finishes.setIngoing(a);
 			a.setSource(p_finished);
 			a.setTarget(t_finishes);
+			a.setPoids(1);
 			petrinetI.getArcs().add(a);	
 			return;
 		}

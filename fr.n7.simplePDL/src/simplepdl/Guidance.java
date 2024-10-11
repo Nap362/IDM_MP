@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link simplepdl.Guidance#getElement <em>Element</em>}</li>
  *   <li>{@link simplepdl.Guidance#getText <em>Text</em>}</li>
+ *   <li>{@link simplepdl.Guidance#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see simplepdl.SimplepdlPackage#getGuidance()
@@ -55,5 +56,27 @@ public interface Guidance extends ProcessElement {
 	 * @generated
 	 */
 	void setText(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see simplepdl.SimplepdlPackage#getGuidance_Name()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link simplepdl.Guidance#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // Guidance

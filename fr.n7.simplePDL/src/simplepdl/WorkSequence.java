@@ -15,7 +15,6 @@ package simplepdl;
  *   <li>{@link simplepdl.WorkSequence#getLinkType <em>Link Type</em>}</li>
  *   <li>{@link simplepdl.WorkSequence#getPredecessor <em>Predecessor</em>}</li>
  *   <li>{@link simplepdl.WorkSequence#getSuccessor <em>Successor</em>}</li>
- *   <li>{@link simplepdl.WorkSequence#getGestionressource <em>Gestionressource</em>}</li>
  * </ul>
  *
  * @see simplepdl.SimplepdlPackage#getWorkSequence()
@@ -95,27 +94,5 @@ public interface WorkSequence extends ProcessElement {
 	 * @generated
 	 */
 	void setSuccessor(WorkDefinition value);
-
-	/**
-	 * Returns the value of the '<em><b>Gestionressource</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Gestionressource</em>' reference.
-	 * @see #setGestionressource(GestionRessource)
-	 * @see simplepdl.SimplepdlPackage#getWorkSequence_Gestionressource()
-	 * @model
-	 * @generated
-	 */
-	GestionRessource getGestionressource();
-
-	/**
-	 * Sets the value of the '{@link simplepdl.WorkSequence#getGestionressource <em>Gestionressource</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Gestionressource</em>' reference.
-	 * @see #getGestionressource()
-	 * @generated
-	 */
-	void setGestionressource(GestionRessource value);
 
 } // WorkSequence
