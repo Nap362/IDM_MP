@@ -18,8 +18,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import petrinet.Arc;
 import petrinet.PetrinetPackage;
 
 /**
@@ -59,6 +62,7 @@ public class ArcItemProvider
 
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
+			addPoidsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +112,28 @@ public class ArcItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Poids feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPoidsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Arc_poids_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Arc_poids_feature", "_UI_Arc_type"),
+				 PetrinetPackage.Literals.ARC__POIDS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Arc.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,7 +152,8 @@ public class ArcItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Arc_type");
+		Arc arc = (Arc)object;
+		return getString("_UI_Arc_type") + " " + arc.getPoids();
 	}
 
 
@@ -140,6 +167,12 @@ public class ArcItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Arc.class)) {
+			case PetrinetPackage.ARC__POIDS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

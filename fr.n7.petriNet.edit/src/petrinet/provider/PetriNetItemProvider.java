@@ -189,11 +189,6 @@ public class PetriNetItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(PetrinetPackage.Literals.PETRI_NET__NODES,
-				 PetrinetFactory.eINSTANCE.createTransistion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PetrinetPackage.Literals.PETRI_NET__NODES,
 				 PetrinetFactory.eINSTANCE.createTransition()));
 
 		newChildDescriptors.add
