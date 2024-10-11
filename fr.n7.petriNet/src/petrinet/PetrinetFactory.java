@@ -31,15 +31,6 @@ public interface PetrinetFactory extends EFactory {
 	Place createPlace();
 
 	/**
-	 * Returns a new object of class '<em>Transistion</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Transistion</em>'.
-	 * @generated
-	 */
-	Transistion createTransistion();
-
-	/**
 	 * Returns a new object of class '<em>Petri Net</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

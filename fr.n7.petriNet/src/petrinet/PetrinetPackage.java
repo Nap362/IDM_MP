@@ -194,70 +194,6 @@ public interface PetrinetPackage extends EPackage {
 	int PLACE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link petrinet.impl.TransistionImpl <em>Transistion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see petrinet.impl.TransistionImpl
-	 * @see petrinet.impl.PetrinetPackageImpl#getTransistion()
-	 * @generated
-	 */
-	int TRANSISTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Reseau</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSISTION__RESEAU = NODE__RESEAU;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSISTION__NAME = NODE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSISTION__OUTGOING = NODE__OUTGOING;
-
-	/**
-	 * The feature id for the '<em><b>Ingoing</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSISTION__INGOING = NODE__INGOING;
-
-	/**
-	 * The number of structural features of the '<em>Transistion</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSISTION_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Transistion</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSISTION_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link petrinet.impl.PetriNetImpl <em>Petri Net</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,7 +201,7 @@ public interface PetrinetPackage extends EPackage {
 	 * @see petrinet.impl.PetrinetPackageImpl#getPetriNet()
 	 * @generated
 	 */
-	int PETRI_NET = 3;
+	int PETRI_NET = 2;
 
 	/**
 	 * The feature id for the '<em><b>Nodes</b></em>' containment reference list.
@@ -320,7 +256,7 @@ public interface PetrinetPackage extends EPackage {
 	 * @see petrinet.impl.PetrinetPackageImpl#getArc()
 	 * @generated
 	 */
-	int ARC = 4;
+	int ARC = 3;
 
 	/**
 	 * The feature id for the '<em><b>Petrinet</b></em>' container reference.
@@ -350,13 +286,22 @@ public interface PetrinetPackage extends EPackage {
 	int ARC__TARGET = 2;
 
 	/**
+	 * The feature id for the '<em><b>Poids</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARC__POIDS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Arc</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARC_FEATURE_COUNT = 3;
+	int ARC_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Arc</em>' class.
@@ -375,7 +320,7 @@ public interface PetrinetPackage extends EPackage {
 	 * @see petrinet.impl.PetrinetPackageImpl#getTransition()
 	 * @generated
 	 */
-	int TRANSITION = 5;
+	int TRANSITION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Reseau</b></em>' container reference.
@@ -508,16 +453,6 @@ public interface PetrinetPackage extends EPackage {
 	EAttribute getPlace_NbTokens();
 
 	/**
-	 * Returns the meta object for class '{@link petrinet.Transistion <em>Transistion</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Transistion</em>'.
-	 * @see petrinet.Transistion
-	 * @generated
-	 */
-	EClass getTransistion();
-
-	/**
 	 * Returns the meta object for class '{@link petrinet.PetriNet <em>Petri Net</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -602,6 +537,17 @@ public interface PetrinetPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getArc_Target();
+
+	/**
+	 * Returns the meta object for the attribute '{@link petrinet.Arc#getPoids <em>Poids</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Poids</em>'.
+	 * @see petrinet.Arc#getPoids()
+	 * @see #getArc()
+	 * @generated
+	 */
+	EAttribute getArc_Poids();
 
 	/**
 	 * Returns the meta object for class '{@link petrinet.Transition <em>Transition</em>}'.
@@ -697,16 +643,6 @@ public interface PetrinetPackage extends EPackage {
 		EAttribute PLACE__NB_TOKENS = eINSTANCE.getPlace_NbTokens();
 
 		/**
-		 * The meta object literal for the '{@link petrinet.impl.TransistionImpl <em>Transistion</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see petrinet.impl.TransistionImpl
-		 * @see petrinet.impl.PetrinetPackageImpl#getTransistion()
-		 * @generated
-		 */
-		EClass TRANSISTION = eINSTANCE.getTransistion();
-
-		/**
 		 * The meta object literal for the '{@link petrinet.impl.PetriNetImpl <em>Petri Net</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -773,6 +709,14 @@ public interface PetrinetPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ARC__TARGET = eINSTANCE.getArc_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Poids</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARC__POIDS = eINSTANCE.getArc_Poids();
 
 		/**
 		 * The meta object literal for the '{@link petrinet.impl.TransitionImpl <em>Transition</em>}' class.

@@ -57,7 +57,6 @@ public class PetrinetFactoryImpl extends EFactoryImpl implements PetrinetFactory
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case PetrinetPackage.PLACE: return createPlace();
-			case PetrinetPackage.TRANSISTION: return createTransistion();
 			case PetrinetPackage.PETRI_NET: return createPetriNet();
 			case PetrinetPackage.ARC: return createArc();
 			case PetrinetPackage.TRANSITION: return createTransition();
@@ -75,17 +74,6 @@ public class PetrinetFactoryImpl extends EFactoryImpl implements PetrinetFactory
 	public Place createPlace() {
 		PlaceImpl place = new PlaceImpl();
 		return place;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Transistion createTransistion() {
-		TransistionImpl transistion = new TransistionImpl();
-		return transistion;
 	}
 
 	/**

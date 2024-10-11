@@ -29,6 +29,7 @@ import petrinet.PetrinetPackage;
  *   <li>{@link petrinet.impl.ArcImpl#getPetrinet <em>Petrinet</em>}</li>
  *   <li>{@link petrinet.impl.ArcImpl#getSource <em>Source</em>}</li>
  *   <li>{@link petrinet.impl.ArcImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link petrinet.impl.ArcImpl#getPoids <em>Poids</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +54,26 @@ public class ArcImpl extends MinimalEObjectImpl.Container implements Arc {
 	 * @ordered
 	 */
 	protected Node target;
+
+	/**
+	 * The default value of the '{@link #getPoids() <em>Poids</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPoids()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int POIDS_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getPoids() <em>Poids</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPoids()
+	 * @generated
+	 * @ordered
+	 */
+	protected int poids = POIDS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,6 +267,29 @@ public class ArcImpl extends MinimalEObjectImpl.Container implements Arc {
 	 * @generated
 	 */
 	@Override
+	public int getPoids() {
+		return poids;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPoids(int newPoids) {
+		int oldPoids = poids;
+		poids = newPoids;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PetrinetPackage.ARC__POIDS, oldPoids, poids));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PetrinetPackage.ARC__PETRINET:
@@ -312,6 +356,8 @@ public class ArcImpl extends MinimalEObjectImpl.Container implements Arc {
 			case PetrinetPackage.ARC__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case PetrinetPackage.ARC__POIDS:
+				return getPoids();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -332,6 +378,9 @@ public class ArcImpl extends MinimalEObjectImpl.Container implements Arc {
 				return;
 			case PetrinetPackage.ARC__TARGET:
 				setTarget((Node)newValue);
+				return;
+			case PetrinetPackage.ARC__POIDS:
+				setPoids((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -354,6 +403,9 @@ public class ArcImpl extends MinimalEObjectImpl.Container implements Arc {
 			case PetrinetPackage.ARC__TARGET:
 				setTarget((Node)null);
 				return;
+			case PetrinetPackage.ARC__POIDS:
+				setPoids(POIDS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -372,8 +424,26 @@ public class ArcImpl extends MinimalEObjectImpl.Container implements Arc {
 				return source != null;
 			case PetrinetPackage.ARC__TARGET:
 				return target != null;
+			case PetrinetPackage.ARC__POIDS:
+				return poids != POIDS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (poids: ");
+		result.append(poids);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ArcImpl

@@ -15,7 +15,6 @@ import petrinet.PetriNet;
 import petrinet.PetrinetFactory;
 import petrinet.PetrinetPackage;
 import petrinet.Place;
-import petrinet.Transistion;
 import petrinet.Transition;
 
 /**
@@ -38,13 +37,6 @@ public class PetrinetPackageImpl extends EPackageImpl implements PetrinetPackage
 	 * @generated
 	 */
 	private EClass placeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass transistionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,16 +195,6 @@ public class PetrinetPackageImpl extends EPackageImpl implements PetrinetPackage
 	 * @generated
 	 */
 	@Override
-	public EClass getTransistion() {
-		return transistionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getPetriNet() {
 		return petriNetEClass;
 	}
@@ -293,6 +275,16 @@ public class PetrinetPackageImpl extends EPackageImpl implements PetrinetPackage
 	 * @generated
 	 */
 	@Override
+	public EAttribute getArc_Poids() {
+		return (EAttribute)arcEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTransition() {
 		return transitionEClass;
 	}
@@ -335,8 +327,6 @@ public class PetrinetPackageImpl extends EPackageImpl implements PetrinetPackage
 		placeEClass = createEClass(PLACE);
 		createEAttribute(placeEClass, PLACE__NB_TOKENS);
 
-		transistionEClass = createEClass(TRANSISTION);
-
 		petriNetEClass = createEClass(PETRI_NET);
 		createEReference(petriNetEClass, PETRI_NET__NODES);
 		createEReference(petriNetEClass, PETRI_NET__ARCS);
@@ -346,6 +336,7 @@ public class PetrinetPackageImpl extends EPackageImpl implements PetrinetPackage
 		createEReference(arcEClass, ARC__PETRINET);
 		createEReference(arcEClass, ARC__SOURCE);
 		createEReference(arcEClass, ARC__TARGET);
+		createEAttribute(arcEClass, ARC__POIDS);
 
 		transitionEClass = createEClass(TRANSITION);
 	}
@@ -379,7 +370,6 @@ public class PetrinetPackageImpl extends EPackageImpl implements PetrinetPackage
 
 		// Add supertypes to classes
 		placeEClass.getESuperTypes().add(this.getNode());
-		transistionEClass.getESuperTypes().add(this.getNode());
 		transitionEClass.getESuperTypes().add(this.getNode());
 
 		// Initialize classes, features, and operations; add parameters
@@ -392,8 +382,6 @@ public class PetrinetPackageImpl extends EPackageImpl implements PetrinetPackage
 		initEClass(placeEClass, Place.class, "Place", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlace_NbTokens(), ecorePackage.getEInt(), "nbTokens", null, 1, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(transistionEClass, Transistion.class, "Transistion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(petriNetEClass, PetriNet.class, "PetriNet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPetriNet_Nodes(), this.getNode(), this.getNode_Reseau(), "nodes", null, 0, -1, PetriNet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPetriNet_Arcs(), this.getArc(), this.getArc_Petrinet(), "arcs", null, 0, -1, PetriNet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -401,8 +389,9 @@ public class PetrinetPackageImpl extends EPackageImpl implements PetrinetPackage
 
 		initEClass(arcEClass, Arc.class, "Arc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArc_Petrinet(), this.getPetriNet(), this.getPetriNet_Arcs(), "petrinet", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArc_Source(), this.getNode(), this.getNode_Outgoing(), "source", null, 0, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArc_Target(), this.getNode(), this.getNode_Ingoing(), "target", null, 0, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArc_Source(), this.getNode(), this.getNode_Outgoing(), "source", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArc_Target(), this.getNode(), this.getNode_Ingoing(), "target", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getArc_Poids(), ecorePackage.getEInt(), "poids", null, 0, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

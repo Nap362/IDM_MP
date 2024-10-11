@@ -76,10 +76,6 @@ public class PetrinetAdapterFactory extends AdapterFactoryImpl {
 				return createPlaceAdapter();
 			}
 			@Override
-			public Adapter caseTransistion(Transistion object) {
-				return createTransistionAdapter();
-			}
-			@Override
 			public Adapter casePetriNet(PetriNet object) {
 				return createPetriNetAdapter();
 			}
@@ -136,20 +132,6 @@ public class PetrinetAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlaceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link petrinet.Transistion <em>Transistion</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see petrinet.Transistion
-	 * @generated
-	 */
-	public Adapter createTransistionAdapter() {
 		return null;
 	}
 

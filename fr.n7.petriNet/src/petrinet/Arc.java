@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link petrinet.Arc#getPetrinet <em>Petrinet</em>}</li>
  *   <li>{@link petrinet.Arc#getSource <em>Source</em>}</li>
  *   <li>{@link petrinet.Arc#getTarget <em>Target</em>}</li>
+ *   <li>{@link petrinet.Arc#getPoids <em>Poids</em>}</li>
  * </ul>
  *
  * @see petrinet.PetrinetPackage#getArc()
@@ -56,7 +57,7 @@ public interface Arc extends EObject {
 	 * @see #setSource(Node)
 	 * @see petrinet.PetrinetPackage#getArc_Source()
 	 * @see petrinet.Node#getOutgoing
-	 * @model opposite="outgoing"
+	 * @model opposite="outgoing" required="true"
 	 * @generated
 	 */
 	Node getSource();
@@ -80,7 +81,7 @@ public interface Arc extends EObject {
 	 * @see #setTarget(Node)
 	 * @see petrinet.PetrinetPackage#getArc_Target()
 	 * @see petrinet.Node#getIngoing
-	 * @model opposite="ingoing"
+	 * @model opposite="ingoing" required="true"
 	 * @generated
 	 */
 	Node getTarget();
@@ -94,5 +95,27 @@ public interface Arc extends EObject {
 	 * @generated
 	 */
 	void setTarget(Node value);
+
+	/**
+	 * Returns the value of the '<em><b>Poids</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Poids</em>' attribute.
+	 * @see #setPoids(int)
+	 * @see petrinet.PetrinetPackage#getArc_Poids()
+	 * @model
+	 * @generated
+	 */
+	int getPoids();
+
+	/**
+	 * Sets the value of the '{@link petrinet.Arc#getPoids <em>Poids</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Poids</em>' attribute.
+	 * @see #getPoids()
+	 * @generated
+	 */
+	void setPoids(int value);
 
 } // Arc
