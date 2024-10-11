@@ -1,0 +1,9 @@
+digraph {
+	{
+		a1 [shape=circle]
+		a2 [shape=circle]
+	}
+		a1 -> a2 [arrowhead=vee label=s2f]
+		a2 -> a1 [arrowhead=vee label=s2s]
+		invalid -> invalid [arrowhead=vee label=s2s]
+}
