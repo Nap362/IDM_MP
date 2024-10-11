@@ -1,0 +1,76 @@
+[comment encoding = UTF-8 /]
+[module todot('http://simplepdl')]
+
+[template public processToDot(aProcess : Process)]
+[comment @main/]
+[file (aProcess.name + '.dot', false, 'UTF-8')]
+digraph {
+	{
+[let wds : OrderedSet(WorkDefinition) = aProcess.getWDs() ] 
+	[if (wds->size() > 0)] 
+		[for (wd : WorkDefinition | wds)] 
+		[wd.name/] ['['/]shape=circle[']'/]
+		[/for] 
+	[/if] 
+[/let]
+[let rs : OrderedSet(Ressource) = aProcess.getRs() ] 
+	[if (rs->size() > 0)] 
+		[for (r : Ressource | rs)] 
+		[r.name/] ['['/]shape=diamond label=[r.name/] (-) [']'/]
+		[/for] 
+	[/if] 
+[/let] 
+[let gs : OrderedSet(Guidance) = aProcess.getGs() ] 
+	[if (gs->size() > 0)] 
+		[for (g : Guidance | gs)] 
+		[g.text/] ['['/]shape=square[']'/]
+		[/for] 
+	[/if] 
+[/let] 
+	}
+[let wss : OrderedSet(WorkSequence) = aProcess.getWSs() ] 
+	[if (wss->size() > 0)] 
+		[for (ws : WorkSequence | wss)] 
+		[ws.predecessor.name/] -> [ws.successor.name/] ['['/]arrowhead=vee label=[ws.linkType.state()/][']'/]
+		[/for] 
+	[/if] 
+[/let]
+}
+	[/file]
+[/template]
+
+[query public getWDs(p: Process) : OrderedSet(WorkDefinition) = 
+	p.processElements->select( e | e.oclIsTypeOf(WorkDefinition) )
+		->collect( e | e.oclAsType(WorkDefinition) )
+		->asOrderedSet()
+/]
+[query public getRs(p: Process) : OrderedSet(Ressource) = 
+	p.processElements->select( e | e.oclIsTypeOf(Ressource) )
+		->collect( e | e.oclAsType(Ressource) )
+		->asOrderedSet()
+/]
+[query public getGs(p: Process) : OrderedSet(Guidance) = 
+	p.processElements->select( e | e.oclIsTypeOf(Guidance) )
+		->collect( e | e.oclAsType(Guidance) )
+		->asOrderedSet()
+/]
+[query public getWSs(p: Process) : OrderedSet(WorkSequence) = 
+	p.processElements->select( e | e.oclIsTypeOf(WorkSequence) )
+		->collect( e | e.oclAsType(WorkSequence) )
+		->asOrderedSet()
+/]
+[query public state(link: WorkSequenceType) : String =
+	if link = WorkSequenceType::startToStart then
+		's2s'
+	else 
+		if link = WorkSequenceType::startToFinish then
+			's2f'
+		else 
+			if link = WorkSequenceType::finishToStart then
+				'f2s'
+			else 
+				'f2f'
+			endif
+		endif
+	endif
+/]

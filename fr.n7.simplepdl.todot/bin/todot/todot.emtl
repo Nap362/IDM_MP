@@ -1,0 +1,1743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="todot" nsURI="todot::todot" startHeaderPosition="29" endHeaderPosition="130">
+    <input>
+      <takesTypesFrom href="http://simplepdl#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="processToDot" visibility="Public" main="true">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="digraph {&#xA;&#x9;{&#xA;"/>
+        <body xsi:type="mtl:LetBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="mtl:ForBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="wd" referredVariable="/0/processToDot/%/%.1/%/%/wd">
+                  <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://simplepdl#//WorkDefinition/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="shape=circle"/>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+              <loopVariable name="wd">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+              </loopVariable>
+              <iterSet xsi:type="ocl.ecore:VariableExp" name="wds" eType="/3/OrderedSet(WorkDefinition)" referredVariable="/0/processToDot/%/%.1/wds"/>
+            </body>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="wds" eType="/3/OrderedSet(WorkDefinition)" referredVariable="/0/processToDot/%/%.1/wds"/>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/size"/>
+              </source>
+              <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="0">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3E"/>
+            </ifExpr>
+          </body>
+          <letVariable name="wds" eType="/3/OrderedSet(WorkDefinition)">
+            <initExpression xsi:type="mtl:QueryInvocation" eType="/3/OrderedSet(WorkDefinition)" definition="/0/getWDs">
+              <argument xsi:type="ocl.ecore:VariableExp" name="aProcess" referredVariable="/0/processToDot/aProcess">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+              </argument>
+            </initExpression>
+          </letVariable>
+        </body>
+        <body xsi:type="mtl:LetBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="mtl:ForBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="r" referredVariable="/0/processToDot/%/%.2/%/%/r">
+                  <eType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://simplepdl#//Ressource/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="shape=diamond label="/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="r" referredVariable="/0/processToDot/%/%.2/%/%/r">
+                  <eType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://simplepdl#//Ressource/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" (-) "/>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+              <loopVariable name="r">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+              </loopVariable>
+              <iterSet xsi:type="ocl.ecore:VariableExp" name="rs" eType="/3/OrderedSet(Ressource)" referredVariable="/0/processToDot/%/%.2/rs"/>
+            </body>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="rs" eType="/3/OrderedSet(Ressource)" referredVariable="/0/processToDot/%/%.2/rs"/>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/size"/>
+              </source>
+              <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="0">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3E"/>
+            </ifExpr>
+          </body>
+          <letVariable name="rs" eType="/3/OrderedSet(Ressource)">
+            <initExpression xsi:type="mtl:QueryInvocation" eType="/3/OrderedSet(Ressource)" definition="/0/getRs">
+              <argument xsi:type="ocl.ecore:VariableExp" name="aProcess" referredVariable="/0/processToDot/aProcess">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+              </argument>
+            </initExpression>
+          </letVariable>
+        </body>
+        <body xsi:type="mtl:LetBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="mtl:ForBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="g" referredVariable="/0/processToDot/%/%.3/%/%/g">
+                  <eType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://simplepdl#//Guidance/text"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="shape=square"/>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+              <loopVariable name="g">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+              </loopVariable>
+              <iterSet xsi:type="ocl.ecore:VariableExp" name="gs" eType="/3/OrderedSet(Guidance)" referredVariable="/0/processToDot/%/%.3/gs"/>
+            </body>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="gs" eType="/3/OrderedSet(Guidance)" referredVariable="/0/processToDot/%/%.3/gs"/>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/size"/>
+              </source>
+              <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="0">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3E"/>
+            </ifExpr>
+          </body>
+          <letVariable name="gs" eType="/3/OrderedSet(Guidance)">
+            <initExpression xsi:type="mtl:QueryInvocation" eType="/3/OrderedSet(Guidance)" definition="/0/getGs">
+              <argument xsi:type="ocl.ecore:VariableExp" name="aProcess" referredVariable="/0/processToDot/aProcess">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+              </argument>
+            </initExpression>
+          </letVariable>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;}&#xA;"/>
+        <body xsi:type="mtl:LetBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="mtl:ForBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="ws" referredVariable="/0/processToDot/%/%.5/%/%/ws">
+                    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://simplepdl#//WorkSequence/predecessor"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://simplepdl#//WorkDefinition/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" -> "/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="ws" referredVariable="/0/processToDot/%/%.5/%/%/ws">
+                    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://simplepdl#//WorkSequence/successor"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://simplepdl#//WorkDefinition/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="arrowhead=vee label="/>
+              <body xsi:type="mtl:QueryInvocation" definition="/0/state">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <argument xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="ws" referredVariable="/0/processToDot/%/%.5/%/%/ws">
+                    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://simplepdl#//WorkSequence/linkType"/>
+                </argument>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+              <loopVariable name="ws">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+              </loopVariable>
+              <iterSet xsi:type="ocl.ecore:VariableExp" name="wss" eType="/3/OrderedSet(WorkSequence)" referredVariable="/0/processToDot/%/%.5/wss"/>
+            </body>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="wss" eType="/3/OrderedSet(WorkSequence)" referredVariable="/0/processToDot/%/%.5/wss"/>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/size"/>
+              </source>
+              <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="0">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3E"/>
+            </ifExpr>
+          </body>
+          <letVariable name="wss" eType="/3/OrderedSet(WorkSequence)">
+            <initExpression xsi:type="mtl:QueryInvocation" eType="/3/OrderedSet(WorkSequence)" definition="/0/getWSs">
+              <argument xsi:type="ocl.ecore:VariableExp" name="aProcess" referredVariable="/0/processToDot/aProcess">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+              </argument>
+            </initExpression>
+          </letVariable>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="}&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aProcess" referredVariable="/0/processToDot/aProcess">
+              <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://simplepdl#//Process/name"/>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".dot">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aProcess">
+        <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getWDs" visibility="Public" type="/3/OrderedSet(WorkDefinition)">
+      <parameter name="p">
+        <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" eType="/3/OrderedSet(WorkDefinition)">
+        <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/3/Sequence(WorkDefinition)">
+          <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/3/OrderedSet(ProcessElement)">
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/3/OrderedSet(ProcessElement)">
+              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/getWDs/p">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://simplepdl#//Process/processElements"/>
+            </source>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getWDs/%/collect/select/e">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/50/WorkDefinition">
+                <referredType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="e">
+              <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+            </iterator>
+          </source>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getWDs/%/collect/e">
+              <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/50/WorkDefinition">
+              <referredType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+          </body>
+          <iterator xsi:type="ocl.ecore:Variable" name="e">
+            <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+          </iterator>
+        </source>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)_Class/asOrderedSet"/>
+      </expression>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getRs" visibility="Public" type="/3/OrderedSet(Ressource)">
+      <parameter name="p">
+        <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" eType="/3/OrderedSet(Ressource)">
+        <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/3/Sequence(Ressource)">
+          <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/3/OrderedSet(ProcessElement)">
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/3/OrderedSet(ProcessElement)">
+              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/getRs/p">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://simplepdl#//Process/processElements"/>
+            </source>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getRs/%/collect/select/e">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/50/Ressource">
+                <referredType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="e">
+              <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+            </iterator>
+          </source>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getRs/%/collect/e">
+              <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/50/Ressource">
+              <referredType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+          </body>
+          <iterator xsi:type="ocl.ecore:Variable" name="e">
+            <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+          </iterator>
+        </source>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)_Class/asOrderedSet"/>
+      </expression>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getGs" visibility="Public" type="/3/OrderedSet(Guidance)">
+      <parameter name="p">
+        <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" eType="/3/OrderedSet(Guidance)">
+        <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/3/Sequence(Guidance)">
+          <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/3/OrderedSet(ProcessElement)">
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/3/OrderedSet(ProcessElement)">
+              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/getGs/p">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://simplepdl#//Process/processElements"/>
+            </source>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getGs/%/collect/select/e">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/50/Guidance">
+                <referredType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="e">
+              <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+            </iterator>
+          </source>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getGs/%/collect/e">
+              <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/50/Guidance">
+              <referredType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+          </body>
+          <iterator xsi:type="ocl.ecore:Variable" name="e">
+            <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+          </iterator>
+        </source>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)_Class/asOrderedSet"/>
+      </expression>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getWSs" visibility="Public" type="/3/OrderedSet(WorkSequence)">
+      <parameter name="p">
+        <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:OperationCallExp" eType="/3/OrderedSet(WorkSequence)">
+        <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/3/Sequence(WorkSequence)">
+          <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/3/OrderedSet(ProcessElement)">
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/3/OrderedSet(ProcessElement)">
+              <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/getWSs/p">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://simplepdl#//Process/processElements"/>
+            </source>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getWSs/%/collect/select/e">
+                <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/50/WorkSequence">
+                <referredType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="e">
+              <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+            </iterator>
+          </source>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/getWSs/%/collect/e">
+              <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/50/WorkSequence">
+              <referredType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+          </body>
+          <iterator xsi:type="ocl.ecore:Variable" name="e">
+            <eType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+          </iterator>
+        </source>
+        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)_Class/asOrderedSet"/>
+      </expression>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="state" visibility="Public">
+      <parameter name="link">
+        <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+      </parameter>
+      <expression xsi:type="ocl.ecore:IfExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <condition xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="link" referredVariable="/0/state/link">
+            <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+          </source>
+          <argument xsi:type="ocl.ecore:EnumLiteralExp">
+            <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+            <referredEnumLiteral xsi:type="ecore:EEnumLiteral" href="http://simplepdl#//WorkSequenceType/startToStart"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+        </condition>
+        <thenExpression xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="s2s">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </thenExpression>
+        <elseExpression xsi:type="ocl.ecore:IfExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <condition xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="link" referredVariable="/0/state/link">
+              <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+            </source>
+            <argument xsi:type="ocl.ecore:EnumLiteralExp">
+              <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+              <referredEnumLiteral xsi:type="ecore:EEnumLiteral" href="http://simplepdl#//WorkSequenceType/startToFinish"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+          </condition>
+          <thenExpression xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="s2f">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </thenExpression>
+          <elseExpression xsi:type="ocl.ecore:IfExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <condition xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="link" referredVariable="/0/state/link">
+                <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+              </source>
+              <argument xsi:type="ocl.ecore:EnumLiteralExp">
+                <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+                <referredEnumLiteral xsi:type="ecore:EEnumLiteral" href="http://simplepdl#//WorkSequenceType/finishToStart"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/="/>
+            </condition>
+            <thenExpression xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="f2s">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </thenExpression>
+            <elseExpression xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="f2f">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </elseExpression>
+          </elseExpression>
+        </elseExpression>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="processToDot">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/processToDot"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aProcess">
+          <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getWDs" eType="/3/OrderedSet(WorkDefinition)">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getWDs"/>
+        <eParameters name="p">
+          <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getRs" eType="/3/OrderedSet(Ressource)">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getRs"/>
+        <eParameters name="p">
+          <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getGs" eType="/3/OrderedSet(Guidance)">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getGs"/>
+        <eParameters name="p">
+          <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getWSs" eType="/3/OrderedSet(WorkSequence)">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getWSs"/>
+        <eParameters name="p">
+          <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="state">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/state"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="link">
+          <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="simplepdl_Process_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://simplepdl#//Process"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="simplepdl_WorkSequenceType_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://simplepdl#//WorkSequenceType"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(WorkDefinition)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Ressource)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Guidance)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(WorkSequence)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(WorkDefinition)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Ressource)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Guidance)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(WorkSequence)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(ProcessElement)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//ProcessElement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(WorkDefinition)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Ressource)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Guidance)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(WorkSequence)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="types">
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="WorkDefinition">
+      <referredType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Ressource">
+      <referredType xsi:type="ecore:EClass" href="http://simplepdl#//Ressource"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Guidance">
+      <referredType xsi:type="ecore:EClass" href="http://simplepdl#//Guidance"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="WorkSequence">
+      <referredType xsi:type="ecore:EClass" href="http://simplepdl#//WorkSequence"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://simplepdl#//Process"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EEnum" href="http://simplepdl#//WorkSequenceType"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/processToDot">
+      <details key="start" value="65"/>
+      <details key="end" value="1015"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/processToDot/%">
+      <details key="start" value="133"/>
+      <details key="end" value="1003"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/processToDot/%/%">
+      <details key="start" value="181"/>
+      <details key="end" value="194"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/processToDot/%/%.1">
+      <details key="start" value="194"/>
+      <details key="end" value="379"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/processToDot/%/%.1/%">
+      <details key="start" value="256"/>
+      <details key="end" value="371"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/processToDot/%/%.1/%/%">
+      <details key="start" value="282"/>
+      <details key="end" value="363"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/processToDot/%/%.1/%/%/%">
+      <details key="start" value="317"/>
+      <details key="end" value="319"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/processToDot/%/%.1/%/%/%.1">
+      <details key="start" value="320"/>
+      <details key="end" value="327"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/processToDot/%/%.1/%/%/%.1/wd">
+      <details key="start" value="320"/>
+      <details key="end" value="322"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/processToDot/%/%.1/%/%/%.2">
+      <details key="start" value="329"/>
+      <details key="end" value="330"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/processToDot/%/%.1/%/%/%.3">
+      <details key="start" value="331"/>
+      <details key="end" value="334"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/processToDot/%/%.1/%/%/%.4">
+      <details key="start" value="336"/>
+      <details key="end" value="348"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/processToDot/%/%.1/%/%/%.5">
+      <details key="start" value="349"/>
+      <details key="end" value="352"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/processToDot/%/%.1/%/%/%.6">
+      <details key="start" value="354"/>
+      <details key="end" value="355"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/processToDot/%/%.1/%/%/wd">
+      <details key="start" value="288"/>
+      <details key="end" value="307"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/processToDot/%/%.1/%/%/wds">
+      <details key="start" value="310"/>
+      <details key="end" value="313"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/processToDot/%/%.1/%/%.1">
+      <details key="start" value="260"/>
+      <details key="end" value="277"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/processToDot/%/%.1/%/%.1/%">
+      <details key="start" value="261"/>
+      <details key="end" value="272"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/processToDot/%/%.1/%/%.1/%/wds">
+      <details key="start" value="261"/>
+      <details key="end" value="264"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/processToDot/%/%.1/%/%.1/%.1">
+      <details key="start" value="275"/>
+      <details key="end" value="276"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/processToDot/%/%.1/wds">
+      <details key="start" value="199"/>
+      <details key="end" value="251"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/processToDot/%/%.1/wds/%">
+      <details key="start" value="235"/>
+      <details key="end" value="252"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/processToDot/%/%.1/wds/%/aProcess">
+      <details key="start" value="235"/>
+      <details key="end" value="243"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/processToDot/%/%.2">
+      <details key="start" value="380"/>
+      <details key="end" value="571"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/processToDot/%/%.2/%">
+      <details key="start" value="435"/>
+      <details key="end" value="563"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/processToDot/%/%.2/%/%">
+      <details key="start" value="460"/>
+      <details key="end" value="555"/>
+      <details key="line" value="18"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/processToDot/%/%.2/%/%/%">
+      <details key="start" value="488"/>
+      <details key="end" value="490"/>
+      <details key="line" value="18"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/processToDot/%/%.2/%/%/%.1">
+      <details key="start" value="491"/>
+      <details key="end" value="497"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/processToDot/%/%.2/%/%/%.1/r">
+      <details key="start" value="491"/>
+      <details key="end" value="492"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/processToDot/%/%.2/%/%/%.2">
+      <details key="start" value="499"/>
+      <details key="end" value="500"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/processToDot/%/%.2/%/%/%.3">
+      <details key="start" value="501"/>
+      <details key="end" value="504"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/processToDot/%/%.2/%/%/%.4">
+      <details key="start" value="506"/>
+      <details key="end" value="526"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/processToDot/%/%.2/%/%/%.5">
+      <details key="start" value="527"/>
+      <details key="end" value="533"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/processToDot/%/%.2/%/%/%.5/r">
+      <details key="start" value="527"/>
+      <details key="end" value="528"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/processToDot/%/%.2/%/%/%.6">
+      <details key="start" value="535"/>
+      <details key="end" value="540"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/processToDot/%/%.2/%/%/%.7">
+      <details key="start" value="541"/>
+      <details key="end" value="544"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/processToDot/%/%.2/%/%/%.8">
+      <details key="start" value="546"/>
+      <details key="end" value="547"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/processToDot/%/%.2/%/%/r">
+      <details key="start" value="466"/>
+      <details key="end" value="479"/>
+      <details key="line" value="18"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/processToDot/%/%.2/%/%/rs">
+      <details key="start" value="482"/>
+      <details key="end" value="484"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/processToDot/%/%.2/%/%.1">
+      <details key="start" value="439"/>
+      <details key="end" value="455"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/processToDot/%/%.2/%/%.1/%">
+      <details key="start" value="440"/>
+      <details key="end" value="450"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/processToDot/%/%.2/%/%.1/%/rs">
+      <details key="start" value="440"/>
+      <details key="end" value="442"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/processToDot/%/%.2/%/%.1/%.1">
+      <details key="start" value="453"/>
+      <details key="end" value="454"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/processToDot/%/%.2/rs">
+      <details key="start" value="385"/>
+      <details key="end" value="430"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/processToDot/%/%.2/rs/%">
+      <details key="start" value="415"/>
+      <details key="end" value="431"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/processToDot/%/%.2/rs/%/aProcess">
+      <details key="start" value="415"/>
+      <details key="end" value="423"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/processToDot/%/%.3">
+      <details key="start" value="573"/>
+      <details key="end" value="740"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/processToDot/%/%.3/%">
+      <details key="start" value="627"/>
+      <details key="end" value="732"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/processToDot/%/%.3/%/%">
+      <details key="start" value="652"/>
+      <details key="end" value="724"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/processToDot/%/%.3/%/%/%">
+      <details key="start" value="679"/>
+      <details key="end" value="681"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/processToDot/%/%.3/%/%/%.1">
+      <details key="start" value="682"/>
+      <details key="end" value="688"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/processToDot/%/%.3/%/%/%.1/g">
+      <details key="start" value="682"/>
+      <details key="end" value="683"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/processToDot/%/%.3/%/%/%.2">
+      <details key="start" value="690"/>
+      <details key="end" value="691"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/processToDot/%/%.3/%/%/%.3">
+      <details key="start" value="692"/>
+      <details key="end" value="695"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/processToDot/%/%.3/%/%/%.4">
+      <details key="start" value="697"/>
+      <details key="end" value="709"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/processToDot/%/%.3/%/%/%.5">
+      <details key="start" value="710"/>
+      <details key="end" value="713"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/processToDot/%/%.3/%/%/%.6">
+      <details key="start" value="715"/>
+      <details key="end" value="716"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/processToDot/%/%.3/%/%/g">
+      <details key="start" value="658"/>
+      <details key="end" value="670"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/processToDot/%/%.3/%/%/gs">
+      <details key="start" value="673"/>
+      <details key="end" value="675"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/processToDot/%/%.3/%/%.1">
+      <details key="start" value="631"/>
+      <details key="end" value="647"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/processToDot/%/%.3/%/%.1/%">
+      <details key="start" value="632"/>
+      <details key="end" value="642"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/processToDot/%/%.3/%/%.1/%/gs">
+      <details key="start" value="632"/>
+      <details key="end" value="634"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/processToDot/%/%.3/%/%.1/%.1">
+      <details key="start" value="645"/>
+      <details key="end" value="646"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/processToDot/%/%.3/gs">
+      <details key="start" value="578"/>
+      <details key="end" value="622"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/processToDot/%/%.3/gs/%">
+      <details key="start" value="607"/>
+      <details key="end" value="623"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/processToDot/%/%.3/gs/%/aProcess">
+      <details key="start" value="607"/>
+      <details key="end" value="615"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/processToDot/%/%.4">
+      <details key="start" value="742"/>
+      <details key="end" value="745"/>
+      <details key="line" value="29"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/processToDot/%/%.5">
+      <details key="start" value="745"/>
+      <details key="end" value="992"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/processToDot/%/%.5/%">
+      <details key="start" value="805"/>
+      <details key="end" value="984"/>
+      <details key="line" value="32"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/processToDot/%/%.5/%/%">
+      <details key="start" value="831"/>
+      <details key="end" value="976"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/processToDot/%/%.5/%/%/%">
+      <details key="start" value="864"/>
+      <details key="end" value="866"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/processToDot/%/%.5/%/%/%.1">
+      <details key="start" value="867"/>
+      <details key="end" value="886"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/processToDot/%/%.5/%/%/%.1/%">
+      <details key="start" value="867"/>
+      <details key="end" value="881"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/processToDot/%/%.5/%/%/%.1/%/ws">
+      <details key="start" value="867"/>
+      <details key="end" value="869"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/processToDot/%/%.5/%/%/%.2">
+      <details key="start" value="888"/>
+      <details key="end" value="892"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/processToDot/%/%.5/%/%/%.3">
+      <details key="start" value="893"/>
+      <details key="end" value="910"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/processToDot/%/%.5/%/%/%.3/%">
+      <details key="start" value="893"/>
+      <details key="end" value="905"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/processToDot/%/%.5/%/%/%.3/%/ws">
+      <details key="start" value="893"/>
+      <details key="end" value="895"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/processToDot/%/%.5/%/%/%.4">
+      <details key="start" value="912"/>
+      <details key="end" value="913"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/processToDot/%/%.5/%/%/%.5">
+      <details key="start" value="914"/>
+      <details key="end" value="917"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/processToDot/%/%.5/%/%/%.6">
+      <details key="start" value="919"/>
+      <details key="end" value="939"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/processToDot/%/%.5/%/%/%.7">
+      <details key="start" value="940"/>
+      <details key="end" value="959"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/processToDot/%/%.5/%/%/%.7/%">
+      <details key="start" value="940"/>
+      <details key="end" value="951"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/processToDot/%/%.5/%/%/%.7/%/ws">
+      <details key="start" value="940"/>
+      <details key="end" value="942"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/processToDot/%/%.5/%/%/%.8">
+      <details key="start" value="962"/>
+      <details key="end" value="965"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/processToDot/%/%.5/%/%/%.9">
+      <details key="start" value="967"/>
+      <details key="end" value="968"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/processToDot/%/%.5/%/%/ws">
+      <details key="start" value="837"/>
+      <details key="end" value="854"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/processToDot/%/%.5/%/%/wss">
+      <details key="start" value="857"/>
+      <details key="end" value="860"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/processToDot/%/%.5/%/%.1">
+      <details key="start" value="809"/>
+      <details key="end" value="826"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/processToDot/%/%.5/%/%.1/%">
+      <details key="start" value="810"/>
+      <details key="end" value="821"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/processToDot/%/%.5/%/%.1/%/wss">
+      <details key="start" value="810"/>
+      <details key="end" value="813"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/processToDot/%/%.5/%/%.1/%.1">
+      <details key="start" value="824"/>
+      <details key="end" value="825"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/processToDot/%/%.5/wss">
+      <details key="start" value="750"/>
+      <details key="end" value="800"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/processToDot/%/%.5/wss/%">
+      <details key="start" value="784"/>
+      <details key="end" value="801"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/processToDot/%/%.5/wss/%/aProcess">
+      <details key="start" value="784"/>
+      <details key="end" value="792"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/processToDot/%/%.6">
+      <details key="start" value="993"/>
+      <details key="end" value="995"/>
+      <details key="line" value="38"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/processToDot/%/%.7">
+      <details key="start" value="140"/>
+      <details key="end" value="162"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/processToDot/%/%.7/%">
+      <details key="start" value="140"/>
+      <details key="end" value="153"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/processToDot/%/%.7/%/aProcess">
+      <details key="start" value="140"/>
+      <details key="end" value="148"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/processToDot/%/%.7/%.1">
+      <details key="start" value="156"/>
+      <details key="end" value="162"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/processToDot/%/%.8">
+      <details key="start" value="171"/>
+      <details key="end" value="178"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/processToDot/aProcess">
+      <details key="start" value="95"/>
+      <details key="end" value="113"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/getWDs">
+      <details key="start" value="1017"/>
+      <details key="end" value="1214"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/getWDs/p">
+      <details key="start" value="1038"/>
+      <details key="end" value="1048"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/getWDs/%">
+      <details key="start" value="1083"/>
+      <details key="end" value="1211"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/getWDs/%/collect">
+      <details key="start" value="1083"/>
+      <details key="end" value="1192"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/getWDs/%/collect/select">
+      <details key="start" value="1083"/>
+      <details key="end" value="1145"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/getWDs/%/collect/select/%">
+      <details key="start" value="1083"/>
+      <details key="end" value="1100"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/getWDs/%/collect/select/%/p">
+      <details key="start" value="1083"/>
+      <details key="end" value="1084"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/getWDs/%/collect/select/%.1">
+      <details key="start" value="1114"/>
+      <details key="end" value="1143"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/getWDs/%/collect/select/%.1/e">
+      <details key="start" value="1114"/>
+      <details key="end" value="1115"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/getWDs/%/collect/select/%.1/%">
+      <details key="start" value="1128"/>
+      <details key="end" value="1142"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/getWDs/%/collect/select/e">
+      <details key="start" value="1110"/>
+      <details key="end" value="1111"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/getWDs/%/collect/%">
+      <details key="start" value="1163"/>
+      <details key="end" value="1190"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/getWDs/%/collect/%/e">
+      <details key="start" value="1163"/>
+      <details key="end" value="1164"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/getWDs/%/collect/%/%">
+      <details key="start" value="1175"/>
+      <details key="end" value="1189"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/getWDs/%/collect/e">
+      <details key="start" value="1159"/>
+      <details key="end" value="1160"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/getRs">
+      <details key="start" value="1215"/>
+      <details key="end" value="1396"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/getRs/p">
+      <details key="start" value="1235"/>
+      <details key="end" value="1245"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/getRs/%">
+      <details key="start" value="1275"/>
+      <details key="end" value="1393"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/getRs/%/collect">
+      <details key="start" value="1275"/>
+      <details key="end" value="1374"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/getRs/%/collect/select">
+      <details key="start" value="1275"/>
+      <details key="end" value="1332"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/getRs/%/collect/select/%">
+      <details key="start" value="1275"/>
+      <details key="end" value="1292"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/getRs/%/collect/select/%/p">
+      <details key="start" value="1275"/>
+      <details key="end" value="1276"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/getRs/%/collect/select/%.1">
+      <details key="start" value="1306"/>
+      <details key="end" value="1330"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/getRs/%/collect/select/%.1/e">
+      <details key="start" value="1306"/>
+      <details key="end" value="1307"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/getRs/%/collect/select/%.1/%">
+      <details key="start" value="1320"/>
+      <details key="end" value="1329"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/getRs/%/collect/select/e">
+      <details key="start" value="1302"/>
+      <details key="end" value="1303"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/getRs/%/collect/%">
+      <details key="start" value="1350"/>
+      <details key="end" value="1372"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/getRs/%/collect/%/e">
+      <details key="start" value="1350"/>
+      <details key="end" value="1351"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/getRs/%/collect/%/%">
+      <details key="start" value="1362"/>
+      <details key="end" value="1371"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/getRs/%/collect/e">
+      <details key="start" value="1346"/>
+      <details key="end" value="1347"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/getGs">
+      <details key="start" value="1397"/>
+      <details key="end" value="1575"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/getGs/p">
+      <details key="start" value="1417"/>
+      <details key="end" value="1427"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/getGs/%">
+      <details key="start" value="1456"/>
+      <details key="end" value="1572"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/getGs/%/collect">
+      <details key="start" value="1456"/>
+      <details key="end" value="1553"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/getGs/%/collect/select">
+      <details key="start" value="1456"/>
+      <details key="end" value="1512"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/getGs/%/collect/select/%">
+      <details key="start" value="1456"/>
+      <details key="end" value="1473"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/getGs/%/collect/select/%/p">
+      <details key="start" value="1456"/>
+      <details key="end" value="1457"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/getGs/%/collect/select/%.1">
+      <details key="start" value="1487"/>
+      <details key="end" value="1510"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/getGs/%/collect/select/%.1/e">
+      <details key="start" value="1487"/>
+      <details key="end" value="1488"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/getGs/%/collect/select/%.1/%">
+      <details key="start" value="1501"/>
+      <details key="end" value="1509"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/getGs/%/collect/select/e">
+      <details key="start" value="1483"/>
+      <details key="end" value="1484"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/getGs/%/collect/%">
+      <details key="start" value="1530"/>
+      <details key="end" value="1551"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/getGs/%/collect/%/e">
+      <details key="start" value="1530"/>
+      <details key="end" value="1531"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/getGs/%/collect/%/%">
+      <details key="start" value="1542"/>
+      <details key="end" value="1550"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/getGs/%/collect/e">
+      <details key="start" value="1526"/>
+      <details key="end" value="1527"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/getWSs">
+      <details key="start" value="1576"/>
+      <details key="end" value="1767"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/getWSs/p">
+      <details key="start" value="1597"/>
+      <details key="end" value="1607"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/getWSs/%">
+      <details key="start" value="1640"/>
+      <details key="end" value="1764"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/getWSs/%/collect">
+      <details key="start" value="1640"/>
+      <details key="end" value="1745"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.151" references="/0/getWSs/%/collect/select">
+      <details key="start" value="1640"/>
+      <details key="end" value="1700"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.152" references="/0/getWSs/%/collect/select/%">
+      <details key="start" value="1640"/>
+      <details key="end" value="1657"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.153" references="/0/getWSs/%/collect/select/%/p">
+      <details key="start" value="1640"/>
+      <details key="end" value="1641"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.154" references="/0/getWSs/%/collect/select/%.1">
+      <details key="start" value="1671"/>
+      <details key="end" value="1698"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.155" references="/0/getWSs/%/collect/select/%.1/e">
+      <details key="start" value="1671"/>
+      <details key="end" value="1672"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.156" references="/0/getWSs/%/collect/select/%.1/%">
+      <details key="start" value="1685"/>
+      <details key="end" value="1697"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.157" references="/0/getWSs/%/collect/select/e">
+      <details key="start" value="1667"/>
+      <details key="end" value="1668"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.158" references="/0/getWSs/%/collect/%">
+      <details key="start" value="1718"/>
+      <details key="end" value="1743"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.159" references="/0/getWSs/%/collect/%/e">
+      <details key="start" value="1718"/>
+      <details key="end" value="1719"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.160" references="/0/getWSs/%/collect/%/%">
+      <details key="start" value="1730"/>
+      <details key="end" value="1742"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.161" references="/0/getWSs/%/collect/e">
+      <details key="start" value="1714"/>
+      <details key="end" value="1715"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.162" references="/0/state">
+      <details key="start" value="1768"/>
+      <details key="end" value="2056"/>
+      <details key="line" value="62"/>
+    </eAnnotations>
+    <eAnnotations source="positions.163" references="/0/state/link">
+      <details key="start" value="1788"/>
+      <details key="end" value="1810"/>
+      <details key="line" value="62"/>
+    </eAnnotations>
+    <eAnnotations source="positions.164" references="/0/state/%">
+      <details key="start" value="1824"/>
+      <details key="end" value="2053"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.165" references="/0/state/%/%">
+      <details key="start" value="1827"/>
+      <details key="end" value="1864"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.166" references="/0/state/%/%/link">
+      <details key="start" value="1827"/>
+      <details key="end" value="1831"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.167" references="/0/state/%/%/%">
+      <details key="start" value="1834"/>
+      <details key="end" value="1864"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.168" references="/0/state/%/%.1">
+      <details key="start" value="1872"/>
+      <details key="end" value="1877"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.169" references="/0/state/%/%.2">
+      <details key="start" value="1887"/>
+      <details key="end" value="2046"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.170" references="/0/state/%/%.2/%">
+      <details key="start" value="1890"/>
+      <details key="end" value="1928"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.171" references="/0/state/%/%.2/%/link">
+      <details key="start" value="1890"/>
+      <details key="end" value="1894"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.172" references="/0/state/%/%.2/%/%">
+      <details key="start" value="1897"/>
+      <details key="end" value="1928"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.173" references="/0/state/%/%.2/%.1">
+      <details key="start" value="1937"/>
+      <details key="end" value="1942"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.174" references="/0/state/%/%.2/%.2">
+      <details key="start" value="1954"/>
+      <details key="end" value="2038"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.175" references="/0/state/%/%.2/%.2/%">
+      <details key="start" value="1957"/>
+      <details key="end" value="1995"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.176" references="/0/state/%/%.2/%.2/%/link">
+      <details key="start" value="1957"/>
+      <details key="end" value="1961"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.177" references="/0/state/%/%.2/%.2/%/%">
+      <details key="start" value="1964"/>
+      <details key="end" value="1995"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.178" references="/0/state/%/%.2/%.2/%.1">
+      <details key="start" value="2005"/>
+      <details key="end" value="2010"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.179" references="/0/state/%/%.2/%.2/%.2">
+      <details key="start" value="2024"/>
+      <details key="end" value="2029"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>
