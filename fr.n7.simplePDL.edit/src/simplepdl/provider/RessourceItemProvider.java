@@ -46,6 +46,8 @@ public class RessourceItemProvider extends ProcessElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addQuantitePropertyDescriptor(object);
+			addAllocationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,6 +70,50 @@ public class RessourceItemProvider extends ProcessElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Quantite feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQuantitePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Ressource_quantite_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Ressource_quantite_feature", "_UI_Ressource_type"),
+				 SimplepdlPackage.Literals.RESSOURCE__QUANTITE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Allocations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAllocationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Ressource_allocations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Ressource_allocations_feature", "_UI_Ressource_type"),
+				 SimplepdlPackage.Literals.RESSOURCE__ALLOCATIONS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -111,6 +157,7 @@ public class RessourceItemProvider extends ProcessElementItemProvider {
 
 		switch (notification.getFeatureID(Ressource.class)) {
 			case SimplepdlPackage.RESSOURCE__NAME:
+			case SimplepdlPackage.RESSOURCE__QUANTITE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

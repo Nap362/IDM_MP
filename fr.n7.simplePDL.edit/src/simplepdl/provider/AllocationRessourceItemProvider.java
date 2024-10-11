@@ -11,8 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,16 +22,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import simplepdl.SimplepdlFactory;
+import simplepdl.AllocationRessource;
 import simplepdl.SimplepdlPackage;
 
 /**
- * This is the item provider adapter for a {@link simplepdl.Process} object.
+ * This is the item provider adapter for a {@link simplepdl.AllocationRessource} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProcessItemProvider 
+public class AllocationRessourceItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +45,7 @@ public class ProcessItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProcessItemProvider(AdapterFactory adapterFactory) {
+	public AllocationRessourceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,72 +60,65 @@ public class ProcessItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
+			addQuantiteRequisePropertyDescriptor(object);
+			addRessourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Quantite Requise feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addQuantiteRequisePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Process_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Process_name_feature", "_UI_Process_type"),
-				 SimplepdlPackage.Literals.PROCESS__NAME,
+				 getString("_UI_AllocationRessource_quantiteRequise_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationRessource_quantiteRequise_feature", "_UI_AllocationRessource_type"),
+				 SimplepdlPackage.Literals.ALLOCATION_RESSOURCE__QUANTITE_REQUISE,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Ressource feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(SimplepdlPackage.Literals.PROCESS__PROCESS_ELEMENTS);
-		}
-		return childrenFeatures;
+	protected void addRessourcePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AllocationRessource_ressource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationRessource_ressource_feature", "_UI_AllocationRessource_type"),
+				 SimplepdlPackage.Literals.ALLOCATION_RESSOURCE__RESSOURCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Process.gif.
+	 * This returns AllocationRessource.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Process"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AllocationRessource"));
 	}
 
 	/**
@@ -138,10 +129,8 @@ public class ProcessItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((simplepdl.Process)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Process_type") :
-			getString("_UI_Process_type") + " " + label;
+		AllocationRessource allocationRessource = (AllocationRessource)object;
+		return getString("_UI_AllocationRessource_type") + " " + allocationRessource.getQuantiteRequise();
 	}
 
 
@@ -156,12 +145,9 @@ public class ProcessItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(simplepdl.Process.class)) {
-			case SimplepdlPackage.PROCESS__NAME:
+		switch (notification.getFeatureID(AllocationRessource.class)) {
+			case SimplepdlPackage.ALLOCATION_RESSOURCE__QUANTITE_REQUISE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case SimplepdlPackage.PROCESS__PROCESS_ELEMENTS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -177,26 +163,6 @@ public class ProcessItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimplepdlPackage.Literals.PROCESS__PROCESS_ELEMENTS,
-				 SimplepdlFactory.eINSTANCE.createWorkDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimplepdlPackage.Literals.PROCESS__PROCESS_ELEMENTS,
-				 SimplepdlFactory.eINSTANCE.createWorkSequence()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimplepdlPackage.Literals.PROCESS__PROCESS_ELEMENTS,
-				 SimplepdlFactory.eINSTANCE.createGuidance()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimplepdlPackage.Literals.PROCESS__PROCESS_ELEMENTS,
-				 SimplepdlFactory.eINSTANCE.createRessource()));
 	}
 
 	/**

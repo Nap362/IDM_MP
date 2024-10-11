@@ -47,6 +47,7 @@ public class GuidanceItemProvider extends ProcessElementItemProvider {
 
 			addElementPropertyDescriptor(object);
 			addTextPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,6 +97,28 @@ public class GuidanceItemProvider extends ProcessElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Guidance_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Guidance_name_feature", "_UI_Guidance_type"),
+				 SimplepdlPackage.Literals.GUIDANCE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Guidance.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,7 +137,7 @@ public class GuidanceItemProvider extends ProcessElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Guidance)object).getText();
+		String label = ((Guidance)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Guidance_type") :
 			getString("_UI_Guidance_type") + " " + label;
@@ -134,6 +157,7 @@ public class GuidanceItemProvider extends ProcessElementItemProvider {
 
 		switch (notification.getFeatureID(Guidance.class)) {
 			case SimplepdlPackage.GUIDANCE__TEXT:
+			case SimplepdlPackage.GUIDANCE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

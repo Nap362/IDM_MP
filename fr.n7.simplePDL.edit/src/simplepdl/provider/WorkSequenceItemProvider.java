@@ -49,7 +49,6 @@ public class WorkSequenceItemProvider extends ProcessElementItemProvider {
 			addLinkTypePropertyDescriptor(object);
 			addPredecessorPropertyDescriptor(object);
 			addSuccessorPropertyDescriptor(object);
-			addGestionressourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,28 +111,6 @@ public class WorkSequenceItemProvider extends ProcessElementItemProvider {
 				 getString("_UI_WorkSequence_successor_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_WorkSequence_successor_feature", "_UI_WorkSequence_type"),
 				 SimplepdlPackage.Literals.WORK_SEQUENCE__SUCCESSOR,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Gestionressource feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGestionressourcePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_WorkSequence_gestionressource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_WorkSequence_gestionressource_feature", "_UI_WorkSequence_type"),
-				 SimplepdlPackage.Literals.WORK_SEQUENCE__GESTIONRESSOURCE,
 				 true,
 				 false,
 				 true,

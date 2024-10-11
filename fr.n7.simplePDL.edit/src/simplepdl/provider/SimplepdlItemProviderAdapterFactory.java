@@ -187,26 +187,26 @@ public class SimplepdlItemProviderAdapterFactory extends SimplepdlAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link simplepdl.GestionRessource} instances.
+	 * This keeps track of the one adapter used for all {@link simplepdl.AllocationRessource} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GestionRessourceItemProvider gestionRessourceItemProvider;
+	protected AllocationRessourceItemProvider allocationRessourceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link simplepdl.GestionRessource}.
+	 * This creates an adapter for a {@link simplepdl.AllocationRessource}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGestionRessourceAdapter() {
-		if (gestionRessourceItemProvider == null) {
-			gestionRessourceItemProvider = new GestionRessourceItemProvider(this);
+	public Adapter createAllocationRessourceAdapter() {
+		if (allocationRessourceItemProvider == null) {
+			allocationRessourceItemProvider = new AllocationRessourceItemProvider(this);
 		}
 
-		return gestionRessourceItemProvider;
+		return allocationRessourceItemProvider;
 	}
 
 	/**
@@ -319,7 +319,7 @@ public class SimplepdlItemProviderAdapterFactory extends SimplepdlAdapterFactory
 		if (workSequenceItemProvider != null) workSequenceItemProvider.dispose();
 		if (guidanceItemProvider != null) guidanceItemProvider.dispose();
 		if (ressourceItemProvider != null) ressourceItemProvider.dispose();
-		if (gestionRessourceItemProvider != null) gestionRessourceItemProvider.dispose();
+		if (allocationRessourceItemProvider != null) allocationRessourceItemProvider.dispose();
 	}
 
 }
